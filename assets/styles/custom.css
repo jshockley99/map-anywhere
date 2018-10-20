@@ -1,0 +1,14 @@
+.orange,
+.orange:visited,
+.orange:active
+ {
+    color: #fff;
+    background-color: #ffa500;
+}
+
+.orange:hover,
+.orange:focus
+{
+    color: #fff;
+    background-color: #ff8c00;
+}
