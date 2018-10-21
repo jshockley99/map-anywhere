@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
 <head>
     <meta charset="utf-8">
@@ -35,20 +35,25 @@
                     <div class="slds-button-group" role="group">
                         <div class="slds-form-element">
                             <div class="slds-form-element__control">
-                                <input id="text-input-id-1" class="slds-input" type="text" placeholder="Vehicle Rule"
-                                    value="" />
+                                <div class="slds-combobox_container">
+                                    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
+                                        role="none">
+                                        <input type="text" class="slds-input slds-combobox__input" id="search" role="textbox"
+                                            placeholder="Search Rules..." />
+                                        <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
+                                            <svg class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default"
+                                                aria-hidden="true">
+                                                <use xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <button id="search" class="slds-button slds-button_icon slds-button_icon-border-filled" title="Search">
-                            <svg class="slds-button__icon" aria-hidden="true">
-                                <use xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#search"></use>
-                            </svg>
-                            <span class="slds-assistive-text">Search</span>
-                        </button>
                         <div class="slds-form-element">
                             <div class="slds-form-element__control">
                                 <div class="slds-select_container">
-                                    <select class="slds-select" id="select-01">
+                                    <select class="slds-select" id="select-filter">
                                         <option value="" disabled selected>Filter by Region</option>
                                         <option value="All">All</option>
                                         <option value="Southeast">Southeast</option>
@@ -59,10 +64,10 @@
                             </div>
                         </div>
                         <button id="refresh-data" class="slds-button slds-button_neutral orange">
+                            <span>Refresh Data</span>
                             <svg class="slds-button__icon" aria-hidden="true">
                                 <use xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#refresh"></use>
                             </svg>
-                            <span class="slds-assistive-text">Refresh Data</span>
                         </button>
                     </div>
                 </div>
@@ -94,7 +99,38 @@
                 </tbody>
             </table>
         </div>
-        <footer class="slds-card__footer">
+        <footer class="slds-card__footer slds-is-relative">
+            <div class="slds-align_absolute-center hide" style="height: 2rem;">
+                <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_inline">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+            <div class="demo-only hide" style="height: 4rem;">
+                <div class="slds-notify_container slds-is-relative">
+                    <div class="slds-notify slds-notify_toast slds-theme_success" role="status">
+                        <span class="slds-assistive-text">info</span>
+                        <span class="slds-icon_container slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top"
+                            title="Description of icon when needed">
+                            <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#success" />
+                            </svg>
+                        </span>
+                        <div class="slds-notify__content">
+                            <h2 class="slds-text-heading_small">Status was updated successfully!</h2>
+                        </div>
+                        <div class="slds-notify__close">
+                            <button id="close" class="slds-button slds-button_icon slds-button_icon-inverse" title="Close">
+                                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/icons/utility-sprite/svg/symbols.svg#close" />
+                                </svg>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
     </article>
 

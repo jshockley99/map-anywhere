@@ -12,3 +12,11 @@
     color: #fff;
     background-color: #ff8c00;
 }
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: inline-block;
+}
