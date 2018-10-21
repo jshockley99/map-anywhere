@@ -71,12 +71,7 @@ const vehicleData = [
   }
 ];
 
-document.body.onload = renderData(vehicleData);
-
-$("#refresh-data").click(renderData(vehicleData));
-
 function renderData(data) {
-  
   $("tbody").empty();
 
   for (let i = 0; i < data.length; i++) {
@@ -113,15 +108,43 @@ function renderData(data) {
     );
 
     newRow.append(
-      cellRule,
-      cellRegion,
-      cellCreatedBy,
-      cellCreatedDate,
-      cellStatus
+      rule,
+      region,
+      createdBy,
+      createdDate,
+      status
     );
 
     $("tbody").append(newRow);
   }
 }
 
+function filterRule() {
+  let selectedRule = $("#text-input-id-1").val();
+  let dataByRule = vehicleData.filter(
+    index => (index.rule.includes(selectedRule))
+  );
+  renderData(dataByRule);
+  $("input").val("");
+}
+
+function filterRegion() {
+  let selectedRegion = $("#select-01").val();
+  let dataByRegion = vehicleData.filter(
+    index => (index.region.includes(selectedRegion))
+  );
+  renderData(dataByRegion);
+  $("select").val("");
+}
+
 function toggleStatus() {}
+
+document.body.onload = renderData(vehicleData);
+
+$("#refresh-data").click(function() {
+  renderData(vehicleData);
+});
+
+$("#search").click(filterRule);
+
+$("#select-01").click(filterRegion);
