@@ -31,7 +31,7 @@
                         </a>
                     </h2>
                 </div>
-                <div class="slds-no-flex">
+                <div class="slds-grid">
                     <div class="slds-button-group" role="group">
                         <div class="slds-form-element">
                             <div class="slds-form-element__control">
@@ -74,41 +74,15 @@
             </header>
         </div>
         <div class="slds-card__body slds-card__body_inner">
-            <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered slds-table_fixed-layout"
-                role="grid">
-                <thead>
-                    <tr class="slds-line-height_reset">
-                        <th class="slds-text-title_caps" scope="col">
-                            <div class="slds-truncate" title="Vehicle Rule">Vehicle Rule</div>
-                        </th>
-                        <th class="slds-text-title_caps" scope="col">
-                            <div class="slds-truncate" title="Region">Region</div>
-                        </th>
-                        <th class="slds-text-title_caps" scope="col">
-                            <div class="slds-truncate" title="Created By">Created By</div>
-                        </th>
-                        <th class="slds-text-title_caps" scope="col">
-                            <div class="slds-truncate" title="Created Date">Created Date</div>
-                        </th>
-                        <th class="slds-text-title_caps" scope="col">
-                            <div class="slds-truncate" title="Status">Status</div>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <footer class="slds-card__footer slds-is-relative">
-            <div class="slds-align_absolute-center hide" style="height: 2rem;">
-                <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_inline">
+            <div class="demo-only-spinner hide" style="height: 2rem;">
+                <div role="status" class="slds-spinner slds-spinner_medium slds-is-fixed">
                     <span class="slds-assistive-text">Loading</span>
                     <div class="slds-spinner__dot-a"></div>
                     <div class="slds-spinner__dot-b"></div>
                 </div>
             </div>
-            <div class="demo-only hide" style="height: 4rem;">
-                <div class="slds-notify_container slds-is-relative">
+            <div class="demo-only-toast hide" style="height: 4rem;">
+                <div class="slds-notify_container slds-is-fixed">
                     <div class="slds-notify slds-notify_toast slds-theme_success" role="status">
                         <span class="slds-assistive-text">info</span>
                         <span class="slds-icon_container slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top"
@@ -131,11 +105,14 @@
                     </div>
                 </div>
             </div>
+            <div class="demo-only" style="width:320px">
+                <ul class="slds-has-dividers_around-space">
+                </ul>
+            </div>
+        </div>
+        <footer class="slds-card__footer slds-is-relative">
         </footer>
     </article>
-
-
-
     <script type="text/javascript" src="./app.js"></script>
 </body>
 

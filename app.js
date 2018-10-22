@@ -72,28 +72,22 @@ const vehicleData = [
 ];
 
 function renderData(data) {
-  $("tbody").empty();
+  $("ul").empty();
 
   for (let i = 0; i < data.length; i++) {
-    let newRow = $("<tr class='slds-hint-parent'>");
-    let cellRule = $("<td role='gridcell'>");
-    let rule = cellRule.append(
-      "<div class='slds-truncate'>" + data[i].rule + "</div>"
+    let newItem = $("<li class='slds-item'>").append(
+      "<article class='slds-tile slds-tile_board'></article>"
     );
-    let cellRegion = $("<td role='gridcell'>");
-    let region = cellRegion.append(
-      "<div class='slds-truncate'>" + data[i].region + "</div>"
+    let rule = $(
+      "<h3 class='slds-tile__title slds-truncate'>" + data[i].rule + "</h3>"
     );
-    let cellCreatedBy = $("<td role='gridcell'>");
-    let createdBy = cellCreatedBy.append(
-      "<div class='slds-truncate'>" + data[i].createdBy + "</div>"
+    let divWrapper = $("<div class='slds-tile__detail'></div>");
+    let region = $("<p class='slds-truncate'>" + data[i].region + "</p>");
+    let createdBy = $("<p class='slds-truncate'>" + data[i].createdBy + "</p>");
+    let createdDate = $(
+      "<p class='slds-truncate'>" + data[i].createdDate + "</p>"
     );
-    let cellCreatedDate = $("<td role='gridcell'>");
-    let createdDate = cellCreatedDate.append(
-      "<div class='slds-truncate'>" + data[i].createdDate + "</div>"
-    );
-    let cellStatus = $("<td role='gridcell'>");
-    let status = cellStatus.append(
+    let status = $(
       "<div class='slds-truncate'><button class='slds-button slds-button_neutral toggle' data-state='" +
         data[i].status +
         "'>" +
@@ -101,9 +95,10 @@ function renderData(data) {
         "</button></div>"
     );
 
-    newRow.append(rule, region, createdBy, createdDate, status);
+    divWrapper.append(region, createdBy, createdDate, status);
+    newItem.append(rule, divWrapper);
 
-    $("tbody").append(newRow);
+    $("ul").append(newItem);
   }
 }
 
@@ -125,15 +120,15 @@ function filterRegion() {
 }
 
 function hideSpinner() {
-  $("div.slds-align_absolute-center").toggleClass("show hide");
+  $("div.demo-only-spinner").toggleClass("show hide");
 }
 
 function showToast() {
-  $("div.demo-only").toggleClass("hide show");
+  $("div.demo-only-toast").toggleClass("hide show");
 }
 
 function closeToast() {
-  $("div.demo-only").toggleClass("show hide");
+  $("div.demo-only-toast").toggleClass("show hide");
 }
 
 function toggleStatus() {
@@ -145,7 +140,7 @@ function toggleStatus() {
     $(this).text("Active");
     $(this).attr("data-state", "Active");
   }
-  $("div.slds-align_absolute-center").toggleClass("hide show");
+  $("div.demo-only-spinner").toggleClass("hide show");
 
   setTimeout(hideSpinner, 999);
 
